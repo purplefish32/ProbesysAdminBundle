@@ -170,7 +170,8 @@ table.index-table {
     width: 100%;
 }
 
-table.index-table th {
+table.index-table th,
+table.index-table tfoot{
     background: #efefef;
     background: -webkit-gradient(linear, left top, left bottom, from(#efefef), to(#dfe1e2));
     background: -moz-linear-gradient(-90deg, #efefef, #dfe1e2);

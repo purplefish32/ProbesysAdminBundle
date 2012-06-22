@@ -9,7 +9,7 @@
     <div class="row-fluid">
         <ul class="breadcrumb">
             <li class="">
-                <a href="/admin/">{{ "{{ 'generic.dashboard'|trans({}, 'ProbesysAdminBundle') }}" }}</a>
+                <a href="{{ "{{ path('admin') }}" }}">{{ "{{ 'generic.dashboard'|trans({}, 'ProbesysAdminBundle') }}" }}</a>
             </li>
             <span class="divider">/</span>
             <li>
@@ -51,9 +51,7 @@
         <form action="{{ "{{ path('"~ route_name_prefix ~"_update', { 'id': entity.id }) }}" }}" method="post" {{ "{{ form_enctype(edit_form) }}" }}>
 			<fieldset>
 				{{ "{{ form_widget(edit_form) }}" }}
-				<div class="form-actions">
-    				{% include 'views/others/record_actions.html.twig' %}
-				</div>
+    			{% include 'views/others/record_actions.html.twig' %}
 			</fieldset>
 		</form>
 	</div>
