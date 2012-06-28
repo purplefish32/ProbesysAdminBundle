@@ -64,9 +64,6 @@ table.index-table th.shrink{
 
 .navbar-inner
 {
-	background: #6a7176;
-    background: -webkit-gradient(linear, left top, left bottom, from(#6a7176), to(#4d5256));
-    background: -moz-linear-gradient(-90deg, #6a7176, #4d5256);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#6a7176, endColorstr=#4d5256);
     -ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#6a7176, endColorstr=#4d5256);
     border-bottom: 1px solid #44484b;
