@@ -11,6 +11,11 @@ a{
     color: #38678B;
 }
 
+h1,
+h2{
+    color: #5E6469;
+}
+
 h1 .breadcrumb{
     margin: 0;
     padding: 0;
