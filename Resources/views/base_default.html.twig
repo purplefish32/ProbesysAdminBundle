@@ -61,11 +61,8 @@
                     <div class="nav-collapse">
                         <ul class="nav">
                             {% block mainmenu %}
+                                <li class=""><a href="{{ path('admin_user') }}" tabindex="2">Users</a></li>
                             {% endblock mainmenu %}
-                            {% block mainmenudefault %}
-                            <li class=""><a href="{{ path('admin_user') }}" tabindex="2">Users</a></li>
-                            <li class=""><a href="{{ path('admin_setting') }}" tabindex="2">Settings</a></li>
-                            {% endblock mainmenudefault %}
                         </ul>
                     </div><!--/.nav-collapse -->
                 </div>
