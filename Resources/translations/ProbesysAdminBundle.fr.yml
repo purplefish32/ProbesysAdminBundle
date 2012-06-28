@@ -13,6 +13,7 @@ generic:
     save_and_edit: Enregistrer et editer
     confirm: Valider
     date_format: d/m/Y H:i:s
+    my_profile: Mon profil
 #Bulk
 bulk:
     delete: Suprimer la séléction

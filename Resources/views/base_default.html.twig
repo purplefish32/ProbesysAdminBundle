@@ -44,14 +44,14 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </a>
-                    <a class="brand" href="{{ path('admin') }}" tabindex="1">Probesys Admin</a>
+                    <a class="brand" href="{{ path('admin') }}" tabindex="1">{% block app_name %}Probesys Admin{% endblock app_name %}</a>
                     <div class="btn-group pull-right">
                         <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
                             <i class="icon-user"></i>{{ app.user.username }}
                             <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a href="profile">{{ i18n_profile }}</a></li>
+                            <li><a href="{{ path('fos_user_profile_edit') }}">{{ 'generic.my_profile'|trans({}, 'ProbesysAdminBundle') }}</a></li>
                             <li class="divider"></li>
                             <li><a href="{{ path('fos_user_security_logout') }}">{{ i18n_logout }}</a></li>
                         </ul>
