@@ -51,9 +51,11 @@
                             <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a href="{{ path('fos_user_profile_edit') }}">{{ 'generic.my_profile'|trans({}, 'ProbesysAdminBundle') }}</a></li>
-                            <li class="divider"></li>
-                            <li><a href="{{ path('fos_user_security_logout') }}">{{ i18n_logout }}</a></li>
+                            {% block usermenu %}
+                                <li><a href="{{ path('fos_user_profile_edit') }}">{{ 'generic.my_profile'|trans({}, 'ProbesysAdminBundle') }}</a></li>
+                                <li class="divider"></li>
+                                <li><a href="{{ path('fos_user_security_logout') }}">{{ 'generic.logout'|trans({}, 'ProbesysAdminBundle') }}</a></li>
+                            {% endblock usermenu %}
                         </ul>
                     </div>
                     <div class="nav-collapse">

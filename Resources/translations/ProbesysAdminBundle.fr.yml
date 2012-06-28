@@ -1,19 +1,20 @@
 #Generic
 generic:
-    dashboard: Accueil
-    list: Lister
+    cancel: Annuler
+    confirm: Valider
     create: Nouveau
-    show: Voir
-    edit: Editer
+    dashboard: Accueil
+    date_format: d/m/Y H:i:s
     delete: Suprimer
     delete_confirm: Vous êtes sur de vouloir suprimer ceci ?
-    cancel: Annuler
+    edit: Editer
+    list: Lister
+    logout: Se déconnecter
+    my_profile: Mon profil
+    show: Voir
     save: Enregistrer
     save_and_add: Enregistrer et créer un noveau
     save_and_edit: Enregistrer et editer
-    confirm: Valider
-    date_format: d/m/Y H:i:s
-    my_profile: Mon profil
 #Bulk
 bulk:
     delete: Suprimer la séléction
