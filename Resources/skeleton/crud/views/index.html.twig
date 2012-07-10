@@ -5,8 +5,8 @@
 {{ "{% endblock pagetitle %}" }}
 
 {{ "{% block content %}" }}
-<div class="span12">
-    <div class="row-fluid">
+<div class="row-fluid">
+    <div class="span12">
         <ul class="breadcrumb">
             <li class="">
                 <a href="{{ "{{ path('admin') }}" }}">{{ "{{ 'generic.dashboard'|trans({}, 'ProbesysAdminBundle') }}" }}</a>
@@ -31,16 +31,6 @@
                 </a>
             </li>
             {% endif %}
-            <!--
-            <li style="float:right" class="dropdown">
-                <a href="#" data-toggle="dropdown" class="dropdown-toggle">Selected items<b class="caret"></b></a>
-                <ul style="left:auto; right:0;" class="dropdown-menu">
-                    <li>
-                        <a onclick="jQuery('#bulk_action').val('bulk_delete'); jQuery('#bulk_form').submit(); return false;" href="#">Delete selected</a>
-                    </li>
-                </ul>
-            </li>
-            -->
         </ul>
         <div id="list">
             <form id="bulk_form" class="form" method="post" action="{{ "{{ path('"~ route_name_prefix ~"_bulk') }}" }}">
@@ -55,10 +45,9 @@
                                 <i class="icon-arrow-left"></i>
                                 <span style="display:none">Previous set</span>
                             </th>
-{%- for field, metadata in fields %}
-                            <th>{{ "{{ pagination.sortable('"~ field|capitalize|replace({'_': ' '}) ~"', 'a."~ field ~"')|raw }}" }}</th>
-
-{%- endfor %}
+                            {% for field, metadata in fields %}
+                                <th>{{ "{{ pagination.sortable('"~ field|capitalize|replace({'_': ' '}) ~"', 'a."~ field ~"')|raw }}" }}</th>
+                            {% endfor %}
                             <th class="last shrink"></th>
                         </tr>
                     </thead>
@@ -75,12 +64,12 @@
                                         <span style="display:none">Show</span>
                                     </a>
                                 </td>
-                                {%- for field, metadata in fields %}
-                                    {%- if loop.first and ('show' in actions) %}
+                                {% for field, metadata in fields %}
+                                    {% if loop.first and ('show' in actions) %}
                                         <td><a href="{{ "{{ path('"~ route_name_prefix ~"_show', { 'id': entity.id }) }}" }}">{{ '{{ entity.'~ field|replace({'_': ''}) ~' }}' }}</a></td>
-                                    {%- elseif metadata.type in ['date', 'datetime'] %}
+                                    {% elseif metadata.type in ['date', 'datetime'] %}
                                         <td>{{ '{% if entity.'~ field|replace({'_': ''}) ~' %}{{ entity.'~ field|replace({'_': ''}) ~'|date(\'Y-m-d H:i:s\') }}{% endif %}' }}</td>
-                                    {%- elseif metadata.type == 'boolean' %}
+                                    {% elseif metadata.type == 'boolean' %}
                                         <td>
                                             {{ '{% if entity.'~ field|replace({'_': ''}) ~' %}' }}
                                             <i class="icon-star"></i>
@@ -89,10 +78,10 @@
                                             {{ '{%- endif %}' }}
                                             <span style="display:none">{{ '{{ entity.'~ field|replace({'_': ''}) ~' }}' }}</span>
                                         </td>
-                                    {%- else %}
+                                    {% else %}
                                         <td>{{ '{{ entity.'~ field|replace({'_': ''}) ~' }}' }}</td>
-                                    {%- endif %}
-                                {%- endfor %}
+                                    {% endif %}
+                                {% endfor %}
 
                                 <td class="last links">
                                     <ul class="inline">
@@ -124,9 +113,6 @@
                 </table>
                 <div class="form-actions">
                     <button type="submit" name="action" value="bulk_delete" class="btn">{{ "{{ 'bulk.delete'|trans({}, 'ProbesysAdminBundle') }}" }}</button>
-                    <!--
-                    <button type="submit" name="action" value="bulk_export" class="btn">{{ "{{ 'bulk.export'|trans({}, 'ProbesysAdminBundle') }}" }}</button>
-                    -->
                 </div>
             </form>
         </div>

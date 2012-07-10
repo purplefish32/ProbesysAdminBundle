@@ -5,8 +5,8 @@
 {{ "{% endblock pagetitle %}" }}
 
 {{ "{% block content %}" }}
-<div class="span12">
-    <div class="row-fluid">
+<div class="row-fluid">
+    <div class="span12">
         <ul class="breadcrumb">
             <li class="">
                 <a href="{{ "{{ path('admin') }}" }}">{{ "{{ 'generic.dashboard'|trans({}, 'ProbesysAdminBundle') }}" }}</a>
@@ -54,22 +54,14 @@
         <table class="record_properties">
             <tbody>
             {%- for field, metadata in fields %}
-
                 <tr>
                     <th>{{ field|capitalize }}</th>
-
-                {%- if metadata.type in ['date', 'datetime'] %}
-
+                {% if metadata.type in ['date', 'datetime'] %}
                     <td>{{ '{{ entity.'~ field|replace({'_': ''}) ~'|date(\'Y-m-d H:i:s\') }}' }}</td>
-
-                {%- else %}
-
+                {% else %}
                     <td>{{ '{{ entity.'~ field|replace({'_': ''}) ~' }}' }}</td>
-
-                {%- endif %}
-
+                {% endif %}
                 </tr>
-
             {%- endfor %}
 
             </tbody>

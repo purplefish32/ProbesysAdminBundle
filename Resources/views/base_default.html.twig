@@ -79,10 +79,8 @@
             {% block flashes %}
                 {{ session_flash() }}
             {% endblock flashes %}
-            <div class="row-fluid">
-                {% block content %}
-                {% endblock content %}
-            </div><!--/row-->
+            {% block content %}
+            {% endblock content %}
             <hr>
             <footer>
                 {% block footer %}
