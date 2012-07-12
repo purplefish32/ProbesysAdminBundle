@@ -21,14 +21,14 @@
             </li>
         </ul>
         <ul class="nav nav-tabs">
-            <li class="icon index_collection_link" rel="" title="">
+            <li class="icon index_collection_link" title="">
                 <a href="{{ "{{ path('"~ route_name_prefix ~"') }}" }}">
                     <i class="icon-th-list"></i>
                     <span>{{ "{{ 'generic.list'|trans({}, 'ProbesysAdminBundle') }}" }}</span>
                 </a>
             </li>
             {% if 'new' in actions %}
-                <li class="icon new_collection_link active" rel="" title="">
+                <li class="icon new_collection_link active" title="">
                     <a href="{{ "{{ path('"~ route_name_prefix ~"_new') }}" }}" tabindex="2">
                         <i class="icon-plus"></i>
                         <span>{{ "{{ 'generic.create'|trans({}, 'ProbesysAdminBundle') }}" }}</span>

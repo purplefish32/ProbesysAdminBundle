@@ -17,14 +17,14 @@
             </li>
         </ul>
         <ul class="nav nav-tabs">
-            <li class="icon index_collection_link active" rel="" title="">
+            <li class="icon index_collection_link active" title="">
                 <a href="{{ "{{ path('admin_user') }}" }}">
                     <i class="icon-th-list"></i>
                     <span>{{ "{{ 'generic.list'|trans({}, 'ProbesysAdminBundle') }}" }}</span>
                 </a>
             </li>
             {% if 'new' in actions %}
-            <li class="icon new_collection_link " rel="" title="">
+            <li class="icon new_collection_link " title="">
                 <a href="{{ "{{ path('"~ route_name_prefix ~"_new') }}" }}" tabindex="2">
                     <i class="icon-plus"></i>
                     <span>{{ "{{ 'generic.create'|trans({}, 'ProbesysAdminBundle') }}" }}</span>
@@ -41,10 +41,6 @@
                             <th class="shrink">
                                 <input type="checkbox" class="toggle">
                             </th>
-                            <th class="shrink hidden">
-                                <i class="icon-arrow-left"></i>
-                                <span style="display:none">Previous set</span>
-                            </th>
                             {% for field, metadata in fields %}
                                 <th>{{ "{{ pagination.sortable('"~ field|capitalize|replace({'_': ' '}) ~"', 'a."~ field ~"')|raw }}" }}</th>
                             {% endfor %}
@@ -57,12 +53,6 @@
                                 <td></td>
                                 <td>
                                     <input type="checkbox" value="{{ '{{ entity.id }}' }}" name="bulk_ids[]" id="bulk_ids_{{ '{{ entity.id }}' }}">
-                                </td>
-                                <td class="hidden">
-                                    <a href="#" class="pjax">
-                                        <i class="icon-arrow-left"></i>
-                                        <span style="display:none">Show</span>
-                                    </a>
                                 </td>
                                 {% for field, metadata in fields %}
                                     {% if loop.first and ('show' in actions) %}
@@ -85,21 +75,21 @@
 
                                 <td class="last links">
                                     <ul class="inline">
-                                        <li class="icon show_member_link " rel="tooltip" title="Show">
+                                        <li class="icon show_member_link " rel="tooltip" title="{{ "{{ 'generic.show'|trans({}, 'ProbesysAdminBundle') }}" }}">
                                             <a href="{{ "{{ path('"~ route_name_prefix ~"_show', { 'id': entity.id }) }}" }}">
                                                 <i class="icon-eye-open"></i>
                                                 <span style="display:none">{{ "{{ 'generic.show'|trans({}, 'ProbesysAdminBundle') }}" }}</span>
                                             </a>
                                         </li>
 
-                                        <li class="icon edit_member_link " rel="tooltip" title="Edit">
+                                        <li class="icon edit_member_link " rel="tooltip" title="{{ "{{ 'generic.edit'|trans({}, 'ProbesysAdminBundle') }}" }}">
                                             <a href="{{ "{{ path('"~ route_name_prefix ~"_edit', { 'id': entity.id }) }}" }}">
                                                 <i class="icon-pencil"></i>
                                                 <span style="display:none">{{ "{{ 'generic.edit'|trans({}, 'ProbesysAdminBundle') }}" }}</span>
                                             </a>
                                         </li>
 
-                                        <li class="icon delete_member_link " rel="tooltip" title="Delete">
+                                        <li class="icon delete_member_link " rel="tooltip" title="{{ "{{ 'generic.delete'|trans({}, 'ProbesysAdminBundle') }}" }}">
                                             <a href="{{ "{{ path('"~ route_name_prefix ~"_delete', { 'id': entity.id }) }}" }}">
                                                 <i class="icon-remove"></i>
                                                 <span style="display:none">{{ "{{ 'generic.delete'|trans({}, 'ProbesysAdminBundle') }}" }}</span>
