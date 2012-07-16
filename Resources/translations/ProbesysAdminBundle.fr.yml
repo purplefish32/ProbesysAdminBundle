@@ -20,4 +20,4 @@ generic:
 bulk:
     delete: Supprimer la sélection
     delete_confirm: Êtes vous certain de vouloir réaliser cette suppression ?
-    export: Exporter la séléction
+    export: Exporter la sélection
