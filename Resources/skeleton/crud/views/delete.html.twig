@@ -5,8 +5,8 @@
 {{ "{% endblock pagetitle %}" }}
 
 {{ "{% block content %}" }}
-<div class="span12">
-    <div class="row-fluid">
+<div class="row-fluid">
+    <div class="span12">
         <ul class="breadcrumb">
             <li class="">
                 <a href="{{ "{{ path('admin') }}" }}">{{ "{{ 'generic.dashboard'|trans({}, 'ProbesysAdminBundle') }}" }}</a>
@@ -25,14 +25,14 @@
             </li>
         </ul>
         <ul class="nav nav-tabs">
-            <li class="icon new_collection_link" rel="" title="">
+            <li class="icon new_collection_link" title="">
                 <a href="{{ "{{ path('"~ route_name_prefix ~"_show', { 'id': entity.id }) }}" }}" tabindex="2">
                     <i class="icon-eye-open"></i>
                     <span>{{ "{{ 'generic.show'|trans({}, 'ProbesysAdminBundle') }}" }}</span>
                 </a>
             </li>
             {% if 'edit' in actions %}
-            <li class="icon new_collection_link" rel="" title="">
+            <li class="icon new_collection_link" title="">
                 <a href="{{ "{{ path('"~ route_name_prefix ~"_edit', { 'id': entity.id }) }}" }}" tabindex="2">
                     <i class="icon-pencil"></i>
                     <span>{{ "{{ 'generic.edit'|trans({}, 'ProbesysAdminBundle') }}" }}</span>
@@ -40,7 +40,7 @@
             </li>
             {% endif %}
             {% if 'delete' in actions %}
-            <li class="icon new_collection_link active" rel="" title="">
+            <li class="icon new_collection_link active" title="">
                 <a href="{{ "{{ path('"~ route_name_prefix ~"_delete', { 'id': entity.id }) }}" }}" tabindex="2">
                     <i class="icon-remove"></i>
                     <span>{{ "{{ 'generic.delete'|trans({}, 'ProbesysAdminBundle') }}" }}</span>
@@ -54,22 +54,14 @@
         <table class="record_properties">
             <tbody>
             {%- for field, metadata in fields %}
-
                 <tr>
                     <th>{{ field|capitalize }}</th>
-
-                {%- if metadata.type in ['date', 'datetime'] %}
-
+                {% if metadata.type in ['date', 'datetime'] %}
                     <td>{{ '{{ entity.'~ field|replace({'_': ''}) ~'|date(\'Y-m-d H:i:s\') }}' }}</td>
-
-                {%- else %}
-
+                {% else %}
                     <td>{{ '{{ entity.'~ field|replace({'_': ''}) ~' }}' }}</td>
-
-                {%- endif %}
-
+                {% endif %}
                 </tr>
-
             {%- endfor %}
 
             </tbody>

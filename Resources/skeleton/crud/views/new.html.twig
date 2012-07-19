@@ -5,8 +5,8 @@
 {{ "{% endblock pagetitle %}" }}
 
 {{ "{% block content %}" }}
-<div class="span12">
-    <div class="row-fluid">
+<div class="row-fluid">
+    <div class="span12">
         <ul class="breadcrumb">
             <li class="">
                 <a href="{{ "{{ path('admin') }}" }}">{{ "{{ 'generic.dashboard'|trans({}, 'ProbesysAdminBundle') }}" }}</a>
@@ -21,25 +21,25 @@
             </li>
         </ul>
         <ul class="nav nav-tabs">
-            <li class="icon index_collection_link" rel="" title="">
+            <li class="icon index_collection_link" title="">
                 <a href="{{ "{{ path('"~ route_name_prefix ~"') }}" }}">
                     <i class="icon-th-list"></i>
                     <span>{{ "{{ 'generic.list'|trans({}, 'ProbesysAdminBundle') }}" }}</span>
                 </a>
             </li>
-{% if 'new' in actions %}
-            <li class="icon new_collection_link active" rel="" title="">
-                <a href="{{ "{{ path('"~ route_name_prefix ~"_new') }}" }}" tabindex="2">
-                    <i class="icon-plus"></i>
-                    <span>{{ "{{ 'generic.create'|trans({}, 'ProbesysAdminBundle') }}" }}</span>
-                </a>
-            </li>
-{% endif %}
+            {% if 'new' in actions %}
+                <li class="icon new_collection_link active" title="">
+                    <a href="{{ "{{ path('"~ route_name_prefix ~"_new') }}" }}" tabindex="2">
+                        <i class="icon-plus"></i>
+                        <span>{{ "{{ 'generic.create'|trans({}, 'ProbesysAdminBundle') }}" }}</span>
+                    </a>
+                </li>
+            {% endif %}
         </ul>
 		<form action="{{ "{{ path('"~ route_name_prefix ~"_create') }}" }}" method="post" {{ "{{ form_enctype(form) }}" }} class="form-horizontal denser">
 		    {{ "{{ form_widget(form) }}" }}
 		    <fieldset>
-{% include 'views/others/record_actions.html.twig' %}
+                {% include 'views/others/record_actions.html.twig' %}
 		    </fieldset>
 		</form>
 	</div>

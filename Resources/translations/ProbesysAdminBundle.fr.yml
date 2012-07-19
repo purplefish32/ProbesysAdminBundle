@@ -13,7 +13,7 @@ generic:
     my_profile: Mon profil
     show: Voir
     save: Enregistrer
-    save_and_add: Enregistrer et créer un nouveau
+    save_and_add: Enregistrer et créer à nouveau
     save_and_edit: Enregistrer et éditer
     change_password: Modifier mon mot de passe
     next: Suivant
