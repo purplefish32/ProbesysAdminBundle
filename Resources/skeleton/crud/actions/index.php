@@ -29,7 +29,4 @@
         );
 
         return compact('pagination');
-
-{%- endif %}
-
     }
