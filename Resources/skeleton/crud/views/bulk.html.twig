@@ -1,17 +1,22 @@
 {{ "{% extends 'ProbesysAdminBundle::base.html.twig' %}" }}
 
 {{ "{% block content %}" }}
+
     <div class="row-fluid">
         <div class="span12">
             <ul class="nav nav-tabs">
                 <li class="icon index_collection_link" title="">
                     <a href="{{ "{{ path('"~ route_name_prefix ~"') }}" }}"><i class="icon-th-list"></i><span>{{ "{{ 'generic.list'|trans({}, 'ProbesysAdminBundle') }}" }}</span></a>
                 </li>
-                {% if 'new' in actions %}
-                    <li class="icon new_collection_link" title="">
-                        <a href="{{ "{{ path('"~ route_name_prefix ~"_new') }}" }}" tabindex="2"><i class="icon-plus"></i><span>{{ "{{ 'generic.add_new'|trans({}, 'ProbesysAdminBundle') }}" }}</span></a>
-                    </li>
-                {% endif %}
+
+            {%- if 'new' in actions %}
+
+                <li class="icon new_collection_link" title="">
+                    <a href="{{ "{{ path('"~ route_name_prefix ~"_new') }}" }}" tabindex="2"><i class="icon-plus"></i><span>{{ "{{ 'generic.add_new'|trans({}, 'ProbesysAdminBundle') }}" }}</span></a>
+                </li>
+
+            {%- endif %}
+
             </ul>
             <div class="alert alert-danger">
                 {{ "{{ 'bulk.delete_confirm'|trans({}, 'ProbesysAdminBundle') }}" }}
@@ -19,41 +24,71 @@
             <table class="table table-striped index-table table-condensed">
                 <thead>
                     <tr>
-                        {% for field, metadata in fields %}
+
+                        {%- for field, metadata in fields %}
+
                             <th>{{ "{{ '"~ field|capitalize|replace({'_': ' '}) ~"' }}" }}</th>
-                        {% endfor %}
+
+                        {%- endfor %}
+
                     </tr>
                 </thead>
                 <tbody>
-                    {{ '{% for entity in entities %}' }}
-                        <tr>
-                            {%- for field, metadata in fields %}
-                                {% if loop.first and ('show' in actions) %}
-                                    <td><a href="{{ "{{ path('"~ route_name_prefix ~"_show', { 'id': entity.id }) }}" }}">{{ '{{ entity.'~ field|replace({'_': ''}) ~' }}' }}</a></td>
-                                {% elseif metadata.type in ['date', 'datetime'] %}
-                                    <td>{{ '{% if entity.'~ field|replace({'_': ''}) ~' %}{{ entity.'~ field|replace({'_': ''}) ~'|date(\'Y-m-d H:i:s\') }}{% endif %}' }}</td>
-                                {% elseif metadata.type == 'boolean' %}
-                                    <td>
-                                        {{ '{% if entity.'~ field|replace({'_': ''}) ~' %}' }}
-                                            <i class="icon-star"></i>
-                                        {{ '{%- else %}' }}
-                                            <i class="icon-star-empty"></i>
-                                        {{ '{%- endif %}' }}
-                                            <span style="display:none">{{ '{{ entity.'~ field|replace({'_': ''}) ~' }}' }}</span>
-                                    </td>
-                                {% else %}
-                                    <td>{{ '{{ entity.'~ field|replace({'_': ''}) ~' }}' }}</td>
-                                {% endif %}
-                            {% endfor %}
-                        </tr>
-                    {{ '{% endfor %}' }}
+
+                {{ '{%- for entity in entities %}' }}
+
+                    <tr>
+
+                {%- for field, metadata in fields %}
+
+                    {%- if loop.first and ('show' in actions) %}
+
+                        <td><a href="{{ "{{ path('"~ route_name_prefix ~"_show', { 'id': entity.id }) }}" }}">{{ '{{ entity.'~ field|replace({'_': ''}) ~' }}' }}</a></td>
+
+                    {%- elseif metadata.type in ['date', 'datetime'] %}
+
+                        <td>{{ '{% if entity.'~ field|replace({'_': ''}) ~' %}{{ entity.'~ field|replace({'_': ''}) ~'|date(\'Y-m-d H:i:s\') }}{% endif %}' }}</td>
+
+                    {%- elseif metadata.type == 'boolean' %}
+
+                        <td>
+
+                        {{ '{%- if entity.'~ field|replace({'_': ''}) ~' %}' }}
+
+                            <i class="icon-star"></i>
+
+                        {{ '{%- else %}' }}
+
+                            <i class="icon-star-empty"></i>
+
+                        {{ '{%- endif %}' }}
+
+                            <span style="display:none">{{ '{{ entity.'~ field|replace({'_': ''}) ~' }}' }}</span>
+                        </td>
+
+                    {%- else %}
+
+                        <td>{{ '{{ entity.'~ field|replace({'_': ''}) ~' }}' }}</td>
+
+                    {%- endif %}
+
+                {%- endfor %}
+
+                    </tr>
+
+                {{ '{%- endfor %}' }}
+
                 </tbody>
             </table>
             <form method="post" id="bulk_confirm_{{ entity|lower }}" class="bulk_confirm" action="{{ "{{ path('"~ route_name_prefix ~"_bulk') }}" }}">
                 <input type=hidden name="action" value="confirm">
-                    {{ '{% for entity in entities %}' }}
-                        <input type=hidden name="bulk_ids[]" value="{{ '{{ entity.id }}' }}">
-                    {{ '{% endfor %}' }}
+
+            {{ '{%- for entity in entities %}' }}
+
+                <input type=hidden name="bulk_ids[]" value="{{ '{{ entity.id }}' }}">
+
+            {{ '{%- endfor %}' }}
+
                 <div class="form-actions">
                     <button type="submit" name="bulk_confirm" class="btn btn-danger">
                         <i class="icon-white icon-ok"></i>
@@ -69,4 +104,5 @@
             </form>
         </div>
     </div>
+
 {{ "{% endblock %}" }}

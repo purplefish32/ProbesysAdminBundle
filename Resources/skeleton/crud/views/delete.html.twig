@@ -5,6 +5,7 @@
 {{ "{% endblock pagetitle %}" }}
 
 {{ "{% block content %}" }}
+
 <div class="row-fluid">
     <div class="span12">
         <ul class="breadcrumb">
@@ -31,43 +32,60 @@
                     <span>{{ "{{ 'generic.show'|trans({}, 'ProbesysAdminBundle') }}" }}</span>
                 </a>
             </li>
-            {% if 'edit' in actions %}
+
+        {%- if 'edit' in actions %}
+
             <li class="icon new_collection_link" title="">
                 <a href="{{ "{{ path('"~ route_name_prefix ~"_edit', { 'id': entity.id }) }}" }}" tabindex="2">
                     <i class="icon-pencil"></i>
                     <span>{{ "{{ 'generic.edit'|trans({}, 'ProbesysAdminBundle') }}" }}</span>
                 </a>
             </li>
-            {% endif %}
-            {% if 'delete' in actions %}
+
+        {%- endif %}
+
+        {%- if 'delete' in actions %}
+
             <li class="icon new_collection_link active" title="">
                 <a href="{{ "{{ path('"~ route_name_prefix ~"_delete', { 'id': entity.id }) }}" }}" tabindex="2">
                     <i class="icon-remove"></i>
                     <span>{{ "{{ 'generic.delete'|trans({}, 'ProbesysAdminBundle') }}" }}</span>
                 </a>
             </li>
-            {% endif %}
+
+        {%- endif %}
+
         </ul>
         <div class="alert alert-block alert-error fade in">
             <h4 class="alert-heading">{{ "{{ 'generic.delete_confirm'|trans({}, 'ProbesysAdminBundle') }}" }}</h4>
         </div>
         <table class="record_properties">
             <tbody>
+
             {%- for field, metadata in fields %}
+
                 <tr>
                     <th>{{ field|capitalize }}</th>
-                {% if metadata.type in ['date', 'datetime'] %}
+
+                {%- if metadata.type in ['date', 'datetime'] %}
+
                     <td>{{ '{{ entity.'~ field|replace({'_': ''}) ~'|date(\'Y-m-d H:i:s\') }}' }}</td>
-                {% else %}
+
+                {%- else %}
+
                     <td>{{ '{{ entity.'~ field|replace({'_': ''}) ~' }}' }}</td>
-                {% endif %}
+
+                {%- endif %}
+
                 </tr>
+
             {%- endfor %}
 
             </tbody>
         </table>
 
         {% set hide_edit, hide_delete = false, false %}
+
         <form method="post" id="delete_{{ entity|lower }}_{{ '{{ entity.id }}' }}" class="delete_{{ entity|lower }}" action="{{ "{{ path('"~ route_name_prefix ~"_delete', { 'id': entity.id }) }}" }}">
             <div class="form-actions">
                 <button type="submit" name="_save" class="btn btn-danger">
@@ -84,4 +102,5 @@
         </form>
     </div>
 </div>
+
 {{ "{% endblock %}" }}

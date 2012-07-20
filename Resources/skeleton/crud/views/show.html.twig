@@ -27,22 +27,29 @@
                     <span>{{ "{{ 'generic.show'|trans({}, 'ProbesysAdminBundle') }}" }}</span>
                 </a>
             </li>
-            {% if 'edit' in actions %}
+
+        {%- if 'edit' in actions %}
+
             <li class="icon new_collection_link" title="">
                 <a href="{{ "{{ path('"~ route_name_prefix ~"_edit', { 'id': entity.id }) }}" }}" tabindex="2">
                     <i class="icon-pencil"></i>
                     <span>{{ "{{ 'generic.edit'|trans({}, 'ProbesysAdminBundle') }}" }}</span>
                 </a>
             </li>
-            {% endif %}
-            {% if 'delete' in actions %}
+
+        {%- endif %}
+
+        {%- if 'delete' in actions %}
+
             <li class="icon new_collection_link" title="">
                 <a href="{{ "{{ path('"~ route_name_prefix ~"_delete', { 'id': entity.id }) }}" }}" tabindex="2">
                     <i class="icon-remove"></i>
                     <span>{{ "{{ 'generic.delete'|trans({}, 'ProbesysAdminBundle') }}" }}</span>
                 </a>
             </li>
-            {% endif %}
+
+        {%- endif %}
+
         </ul>
         <table class="record_properties">
             <tbody>
@@ -69,4 +76,5 @@
         </table>
     </div>
 </div>
+
 {{ "{% endblock %}" }}
