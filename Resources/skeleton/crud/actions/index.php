@@ -2,39 +2,34 @@
     /**
      * Lists all {{ entity }} entities.
      *
-{% if 'annotation' == format %}
+
+{%- if 'annotation' == format %}
+
      * @Route("/", name="{{ route_name_prefix }}")
      * @Template()
-{% endif %}
+
+{%- endif %}
+
      */
     public function indexAction()
     {
         $em = $this->getDoctrine()->getEntityManager();
 
-        /* Original
+        $page = $this->get('request')->query->get('page', 1);
+        $sort = $this->get('request')->query->get('sort', 'e.id');
+        $direction = $this->get('request')->query->get('direction', 'ASC');
 
-        $entities = $em->getRepository('{{ bundle }}:{{ entity }}')->findAll();
+        $query = $em->getRepository('{{ bundle }}:{{ entity }}')->getListEntity($sort, $direction);
 
-        return array('entities' => $entities);
-
-        */
-
-
-        $dql = "SELECT a FROM {{ bundle }}:{{ entity }} a";
-        $query = $em->createQuery($dql);
-
-{% if 'annotation' == format %}
         $paginator = $this->get('knp_paginator');
         $pagination = $paginator->paginate(
             $query,
-            $this->get('request')->query->get('page', 1)/*page number*/,
-            25/*limit per page*/
+            $page, /*page number*/
+            25 /*limit per page*/
         );
 
         return compact('pagination');
-{% else %}
-        return $this->render('{{ bundle }}:{{ entity|replace({'\\': '/'}) }}:index.html.twig', array(
-            'entities' => $entities
-        ));
-{% endif %}
+
+{%- endif %}
+
     }

@@ -49,7 +49,7 @@
 
                         {%- for field, metadata in fields %}
 
-                            <th>{{ "{{ pagination.sortable('"~ field|capitalize|replace({'_': ' '}) ~"', 'a."~ field ~"')|raw }}" }}</th>
+                            <th>{{ "{{ pagination.sortable('"~ field|capitalize|replace({'_': ' '}) ~"', 'e."~ field ~"')|raw }}" }}</th>
 
                         {%- endfor %}
 
