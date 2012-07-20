@@ -1,7 +1,7 @@
 {{ "{% extends 'ProbesysAdminBundle::base.html.twig' %}" }}
 
 {{ "{% block pagetitle %}" }}
-    {{ "{{ '"~ entity ~".entity_singular'|trans({}, '"~ bundle_name ~"') }}" }} #{{ '{{ entity.id }}' }}
+    {{ "{{ '"~ entity ~".entity_singular'|trans }}" }} #{{ '{{ entity.id }}' }}
 {{ "{% endblock pagetitle %}" }}
 
 {{ "{% block content %}" }}
@@ -13,11 +13,11 @@
             </li>
             <span class="divider">/</span>
             <li>
-                <a href="{{ "{{ path('"~ route_name_prefix ~"') }}" }}">{{ "{{ '"~ entity ~".entity_plural'|trans({}, '"~ bundle_name ~"') }}" }}</a>
+                <a href="{{ "{{ path('"~ route_name_prefix ~"') }}" }}">{{ "{{ '"~ entity ~".entity_plural'|trans }}" }}</a>
             </li>
             <span class="divider">/</span>
             <li class="active">
-                {{ "{{ '"~ entity ~".entity_singular'|trans({}, '"~ bundle_name ~"') }}" }} #{{ '{{ entity.id }}' }}
+                {{ "{{ '"~ entity ~".entity_singular'|trans }}" }} #{{ '{{ entity.id }}' }}
             </li>
         </ul>
         <ul class="nav nav-tabs">
