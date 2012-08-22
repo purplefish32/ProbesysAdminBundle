@@ -19,7 +19,6 @@
 
         */
 
-
         $dql = "SELECT a FROM {{ bundle }}:{{ entity }} a";
         $query = $em->createQuery($dql);
 
@@ -33,6 +32,7 @@
 
         return compact('pagination');
 {% else %}
+
         return $this->render('{{ bundle }}:{{ entity|replace({'\\': '/'}) }}:index.html.twig', array(
             'entities' => $entities
         ));

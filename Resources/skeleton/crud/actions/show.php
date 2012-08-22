@@ -18,10 +18,12 @@
         }
 
 {% if 'annotation' == format %}
+
         return array(
             'entity'      => $entity,
         );
 {% else %}
+
         return $this->render('{{ bundle }}:{{ entity|replace({'\\': '/'}) }}:show.html.twig', array(
             'entity'      => $entity,
         ));

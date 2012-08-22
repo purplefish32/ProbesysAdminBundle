@@ -5,7 +5,6 @@ use Symfony\Component\Form\AbstractTypeExtension;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Form\FormView;
 use Symfony\Component\Form\FormBuilder;
-use Symfony\Component\Form\Exception\CreationException;
 
 class WidgetCollectionFieldTypeExtension extends AbstractTypeExtension
 {
@@ -18,7 +17,7 @@ class WidgetCollectionFieldTypeExtension extends AbstractTypeExtension
 
     public function buildView(FormView $view, FormInterface $form)
     {
-		$view->set('widget_add_btn', @$form->getAttribute('allow_add') ? $form->getAttribute('widget_add_btn') : null);
+        $view->set('widget_add_btn', @$form->getAttribute('allow_add') ? $form->getAttribute('widget_add_btn') : null);
 
         //todo make array, and add
         // add check function

@@ -25,36 +25,36 @@ class ProbesysAdminExtension extends Extension
         $yamlloader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $yamlloader->load("form_extensions.yml");
 
-        if(isset($config['form'])){
-            if(isset($config['form']['render_fieldset'])){
+        if (isset($config['form'])) {
+            if (isset($config['form']['render_fieldset'])) {
                 $container->setParameter(
                     'probesys_admin.form.render_fieldset',
                     $config['form']['render_fieldset']
                 );
             }
-            if(isset($config['form']['show_legend'])){
+            if (isset($config['form']['show_legend'])) {
                 $container->setParameter(
                     'probesys_admin.form.show_legend',
                     $config['form']['show_legend']
                 );
             }
-            if(isset($config['form']['show_child_legend'])){
+            if (isset($config['form']['show_child_legend'])) {
                 $container->setParameter(
                     'probesys_admin.form.show_child_legend',
                     $config['form']['show_child_legend']
                 );
             }
-            if(isset($config['form']['error_type'])){
+            if (isset($config['form']['error_type'])) {
                 $container->setParameter(
                     'probesys_admin.form.error_type',
                     $config['form']['error_type']
                 );
             }
         }
-        if(isset($config['navbar'])){
+        if (isset($config['navbar'])) {
             $xmlloader = new Loader\XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
             $yamlloader->load("navbar_extension.yml");
-            if(isset($config['navbar']['template'])){
+            if (isset($config['navbar']['template'])) {
                 $container->setParameter(
                     'probesys_admin.navbar.template',
                     $config['navbar']['template']
@@ -62,7 +62,8 @@ class ProbesysAdminExtension extends Extension
             }
         }
     }
-    protected function loadExamples(ContainerBuilder $container){
+    protected function loadExamples(ContainerBuilder $container)
+    {
         //$xmlloader = new Loader\XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config/examples'));
         $yamlloader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config/examples'));
         $yamlloader->load("example_menu.yml");

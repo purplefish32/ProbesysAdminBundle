@@ -22,13 +22,13 @@ class AdminTwigExtension extends \Twig_Extension
 
     public function getSetting($setting_name)
     {
-		$setting = $this->doctrine->getRepository('ProbesysAdminBundle:Setting')->findOneBy(array('setting_name' => $setting_name));
+        $setting = $this->doctrine->getRepository('ProbesysAdminBundle:Setting')->findOneBy(array('setting_name' => $setting_name));
 
-		if ( ! isset( $setting ) ){
-			return null;
-		}
+        if ( ! isset( $setting ) ) {
+            return null;
+        }
 
-		return $setting->getSettingValue();
+        return $setting->getSettingValue();
     }
 
     public function getName()

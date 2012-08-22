@@ -8,7 +8,6 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 {%- endif %}
 
-
 class DefaultController extends Controller
 {
     {% if 'annotation' == format -%}
@@ -21,8 +20,10 @@ class DefaultController extends Controller
     public function indexAction($name)
     {
         {% if 'annotation' != format -%}
+
         return $this->render('{{ bundle }}:Default:index.html.twig', array('name' => $name));
         {%- else -%}
+
         return array('name' => $name);
         {%- endif %}
 

@@ -37,4 +37,3 @@ services:
            class: Probesys\AdminBundle\Form\Extension\WidgetCollectionFieldTypeExtension
            tags:
                 - { name: form.type_extension, alias: field } # the alias is the same than getExtendedType in the class
-

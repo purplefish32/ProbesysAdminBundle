@@ -19,8 +19,7 @@
             throw $this->createNotFoundException('Unable to find Setting entity.');
         }
 
-        if( $request->getMethod() == 'POST' )
-        {
+        if ( $request->getMethod() == 'POST' ) {
             $em->remove($entity);
             $em->flush();
 

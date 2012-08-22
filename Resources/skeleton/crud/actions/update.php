@@ -32,19 +32,21 @@
 
             if ($request->get('action') == 'save_and_add') {
                 return $this->redirect($this->generateUrl('{{ route_name_prefix }}_new'));
-            }
-            elseif ($request->get('action') == 'save_and_edit') {
+            } elseif ($request->get('action') == 'save_and_edit') {
                 return $this->redirect($this->generateUrl('{{ route_name_prefix }}_edit', array('id' => $id)));
             }
+
             return $this->redirect($this->generateUrl('{{ route_name_prefix }}'));
         }
 
 {% if 'annotation' == format %}
+
         return array(
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
         );
 {% else %}
+
         return $this->render('{{ bundle }}:{{ entity|replace({'\\': '/'}) }}:edit.html.twig', array(
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
