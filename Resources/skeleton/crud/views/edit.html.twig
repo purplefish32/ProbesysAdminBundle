@@ -1,23 +1,24 @@
 {{ "{% extends 'ProbesysAdminBundle::base.html.twig' %}" }}
 
 {{ "{% block pagetitle %}" }}
-    {{ "{{ '"~ entity ~".entity_edit'|trans({}, '"~ bundle_name ~"') }}" }}
+    {{ "{{ '"~ entity ~".entity_edit'|trans }}" }}
 {{ "{% endblock pagetitle %}" }}
 
 {{ "{% block content %}" }}
-<div class="span12">
-    <div class="row-fluid">
+
+<div class="row-fluid">
+    <div class="span12">
         <ul class="breadcrumb">
             <li class="">
                 <a href="{{ "{{ path('admin') }}" }}">{{ "{{ 'generic.dashboard'|trans({}, 'ProbesysAdminBundle') }}" }}</a>
             </li>
             <span class="divider">/</span>
             <li>
-                <a href="{{ "{{ path('"~ route_name_prefix ~"') }}" }}">{{ "{{ '"~ entity ~".entity_plural'|trans({}, '"~ bundle_name ~"') }}" }}</a>
+                <a href="{{ "{{ path('"~ route_name_prefix ~"') }}" }}">{{ "{{ '"~ entity ~".entity_plural'|trans }}" }}</a>
             </li>
             <span class="divider">/</span>
             <li>
-                <a href="{{ "{{ path('"~ route_name_prefix ~"_show', { 'id': entity.id }) }}" }}">{{ "{{ '"~ entity ~".entity_singular'|trans({}, '"~ bundle_name ~"') }}" }} #{{ '{{ entity.id }}' }}</a>
+                <a href="{{ "{{ path('"~ route_name_prefix ~"_show', { 'id': entity.id }) }}" }}">{{ "{{ '"~ entity ~".entity_singular'|trans }}" }} #{{ '{{ entity.id }}' }}</a>
             </li>
             <span class="divider">/</span>
             <li class="active">
@@ -25,35 +26,46 @@
             </li>
         </ul>
         <ul class="nav nav-tabs">
-            <li class="icon new_collection_link" rel="" title="">
+            <li class="icon new_collection_link" title="">
                 <a href="{{ "{{ path('"~ route_name_prefix ~"_show', { 'id': entity.id }) }}" }}" tabindex="2">
                     <i class="icon-eye-open"></i>
                     <span>{{ "{{ 'generic.show'|trans({}, 'ProbesysAdminBundle') }}" }}</span>
                 </a>
             </li>
-            {% if 'edit' in actions %}
-            <li class="icon new_collection_link edit active" rel="" title="">
+
+        {%- if 'edit' in actions %}
+
+            <li class="icon new_collection_link edit active" title="">
                 <a href="{{ "{{ path('"~ route_name_prefix ~"_edit', { 'id': entity.id }) }}" }}" tabindex="2">
                     <i class="icon-pencil"></i>
                     <span>{{ "{{ 'generic.edit'|trans({}, 'ProbesysAdminBundle') }}" }}</span>
                 </a>
             </li>
-            {% endif %}
-            {% if 'delete' in actions %}
-            <li class="icon new_collection_link" rel="" title="">
+
+        {%- endif %}
+
+        {%- if 'delete' in actions %}
+
+            <li class="icon new_collection_link" title="">
                 <a href="{{ "{{ path('"~ route_name_prefix ~"_delete', { 'id': entity.id }) }}" }}" tabindex="2">
                     <i class="icon-remove"></i>
                     <span>{{ "{{ 'generic.delete'|trans({}, 'ProbesysAdminBundle') }}" }}</span>
                 </a>
             </li>
-            {% endif %}
+
+        {%- endif %}
+
         </ul>
         <form action="{{ "{{ path('"~ route_name_prefix ~"_update', { 'id': entity.id }) }}" }}" method="post" {{ "{{ form_enctype(edit_form) }}" }}>
 			<fieldset>
+
 				{{ "{{ form_widget(edit_form) }}" }}
-    			{% include 'views/others/record_actions.html.twig' %}
+
+    			{%- include 'views/others/record_actions.html.twig' %}
+
 			</fieldset>
 		</form>
 	</div>
 </div>
+
 {{ "{% endblock content %}" }}

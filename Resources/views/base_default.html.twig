@@ -1,9 +1,9 @@
 {% from 'ProbesysAdminBundle::flash.html.twig' import session_flash %}
 <!DOCTYPE html>
-<html lang="{{ app.session.locale }} ">
+<html lang="{{ app.session.locale }}">
     <head>
         <meta charset="utf-8">
-        <title>{{ var_page_title }}</title>
+        <title>{{ block('app_name') }}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         {% block stylesheets %}
         {%
@@ -79,10 +79,8 @@
             {% block flashes %}
                 {{ session_flash() }}
             {% endblock flashes %}
-            <div class="row-fluid">
-                {% block content %}
-                {% endblock content %}
-            </div><!--/row-->
+            {% block content %}
+            {% endblock content %}
             <hr>
             <footer>
                 {% block footer %}
