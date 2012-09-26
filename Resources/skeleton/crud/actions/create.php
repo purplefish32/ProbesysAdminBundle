@@ -22,25 +22,26 @@
 
             $this->get('session')->setFlash( 'success', 'Your {{ entity_class }} has been created' );
 
-            if ($request->get('action') == 'save_and_add')
-            {
+            if ($request->get('action') == 'save_and_add') {
                 return $this->redirect($this->generateUrl('{{ route_name_prefix }}_new'));
-            }
-            elseif ($request->get('action') == 'save_and_edit')
-            {
+            } elseif ($request->get('action') == 'save_and_edit') {
                 $em->refresh($entity);
+
                 return $this->redirect($this->generateUrl('{{ route_name_prefix }}_edit', array('id' => $entity->getId())));
             }
+
             return $this->redirect($this->generateUrl('{{ route_name_prefix }}'));
 
         }
 
 {% if 'annotation' == format %}
+
         return array(
             'entity' => $entity,
             'form'   => $form->createView()
         );
 {% else %}
+
         return $this->render('{{ bundle }}:{{ entity|replace({'\\': '/'}) }}:new.html.twig', array(
             'entity' => $entity,
             'form'   => $form->createView()
