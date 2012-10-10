@@ -39,13 +39,13 @@ namespace Probesys\AdminBundle\Form\Extension;
 use Symfony\Component\Form\AbstractTypeExtension;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Form\FormView;
-use Symfony\Component\Form\FormBuilder;
+use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\Exception\CreationException;
 
 class WidgetFieldTypeExtension extends AbstractTypeExtension
 {
 
-    public function buildForm(FormBuilder $builder, array $options)
+    public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->setAttribute('widget_control_group', $options['widget_control_group']);
         $builder->setAttribute('widget_controls', $options['widget_controls']);
@@ -61,7 +61,7 @@ class WidgetFieldTypeExtension extends AbstractTypeExtension
         $builder->setAttribute('widget_type',   $options['widget_type']);
     }
 
-    public function buildView(FormView $view, FormInterface $form)
+    public function buildView(FormView $view, FormInterface $form, array $options)
     {
         $view->set('widget_control_group', $form->getAttribute('widget_control_group'));
         $view->set('widget_controls', $form->getAttribute('widget_controls'));

@@ -1,5 +1,5 @@
 {
-    "hash": "2a9addbda69d91dfc0fc7dedc98424df",
+    "hash": "257a3481bebbeacb91d880c10d23b0fd",
     "packages": [
         {
             "name": "doctrine/common",
@@ -18,7 +18,7 @@
             "require": {
                 "php": ">=5.3.2"
             },
-            "time": "2012-09-20 05:55:18",
+            "time": "2012-09-20 01:55:18",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -68,6 +68,49 @@
                 "eventmanager",
                 "annotations",
                 "persistence"
+            ]
+        },
+        {
+            "name": "probesys/generator-bundle",
+            "version": "dev-master",
+            "target-dir": "Probesys/GeneratorBundle",
+            "source": {
+                "type": "git",
+                "url": "http://git.probesys.com/probesysgeneratorbundle.git",
+                "reference": "739f5005ecf52e749b8d24f9ddb0dfc62f29295c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/purplefish32/ProbesysGeneratorBundle/zipball/739f5005ecf52e749b8d24f9ddb0dfc62f29295c",
+                "reference": "739f5005ecf52e749b8d24f9ddb0dfc62f29295c",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "time": "1345727559",
+            "type": "library",
+            "installation-source": "source",
+            "autoload": {
+                "psr-0": {
+                    "Probesys\\GeneratorBundle": ""
+                }
+            },
+            "license": [
+                "GPL-V3"
+            ],
+            "authors": [
+                {
+                    "name": "Donovan Tengblad",
+                    "email": "donovan.tengblad@probesys.com",
+                    "homepage": "http://probesys.com"
+                }
+            ],
+            "description": "Probesys Generator Bundle",
+            "homepage": "http://probesys.com",
+            "keywords": [
+                "generator",
+                "Probesys"
             ]
         },
         {
@@ -130,7 +173,7 @@
                 "propel/propel1": "dev-master",
                 "monolog/monolog": "dev-master"
             },
-            "time": "2012-09-20 07:13:00",
+            "time": "2012-09-20 03:13:00",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -180,7 +223,7 @@
             "require": {
                 "php": ">=5.2.4"
             },
-            "time": "2012-09-28 20:11:39",
+            "time": "2012-09-28 16:11:39",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -218,7 +261,7 @@
 
     ],
     "minimum-stability": "stable",
-    "stability-flags": [
-
-    ]
+    "stability-flags": {
+        "probesys/generator-bundle": 20
+    }
 }
