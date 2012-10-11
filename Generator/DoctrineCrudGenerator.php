@@ -14,14 +14,14 @@ namespace Probesys\AdminBundle\Generator;
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\HttpKernel\Bundle\BundleInterface;
 use Doctrine\ORM\Mapping\ClassMetadataInfo;
-use Sensio\Bundle\GeneratorBundle\Generator\Generator as Generator;
+use Sensio\Bundle\GeneratorBundle\Generator\Generator;
 
 /**
  * Generates a CRUD controller.
  *
  * @author Fabien Potencier <fabien@symfony.com>
  */
-class DoctrineCrudGenerator extends Generator
+class DoctrineCrudGenerator extends \Sensio\Bundle\GeneratorBundle\Generator\Generator
 {
     protected $filesystem;
     protected $skeletonDir;
