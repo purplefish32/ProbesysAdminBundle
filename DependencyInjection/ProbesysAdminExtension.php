@@ -48,5 +48,11 @@ use Symfony\Component\DependencyInjection\Loader;
  */
 class ProbesysAdminExtension extends Extension
 {
+    /**
+     * {@inheritDoc}
+     */
+    public function load(array $configs, ContainerBuilder $container)
+    {
 
+    }
 }
