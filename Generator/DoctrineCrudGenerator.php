@@ -14,6 +14,7 @@ namespace Probesys\AdminBundle\Generator;
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\HttpKernel\Bundle\BundleInterface;
 use Doctrine\ORM\Mapping\ClassMetadataInfo;
+use Sensio\Bundle\GeneratorBundle\Generator;
 
 /**
  * Generates a CRUD controller.
