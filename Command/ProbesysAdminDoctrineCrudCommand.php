@@ -2,7 +2,7 @@
 
 namespace Probesys\AdminBundle\Command;
 
-use Sensio\Bundle\GeneratorBundle\Generator\DoctrineCrudGenerator;
+use Probesys\AdminBundle\Generator\DoctrineCrudGenerator;
 
 class ProbesysAdminDoctrineCrudCommand extends \Sensio\Bundle\GeneratorBundle\Command\GenerateDoctrineCrudCommand
 {
