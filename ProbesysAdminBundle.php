@@ -46,7 +46,7 @@ class ProbesysAdminBundle extends Bundle
 {
     public function registerCommands(Application $application)
     {
-        $crudCommand = $application->get('generate:doctrine:crud');
+        $crudCommand = $application->get('probesys-admin:generate:doctrine:crud');
         $generator = new DoctrineCrudGenerator(new FileSystem, __DIR__.'/Resources/skeleton/crud');
         $crudCommand->setGenerator($generator);
 
