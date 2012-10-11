@@ -51,10 +51,10 @@
                         </a>
                         <ul class="dropdown-menu">
                             {% block usermenu %}
-                                <li><a href="{{ path('fos_user_profile_edit') }}">{{ 'generic.my_profile'|trans({}, 'ProbesysAdminBundle') }}</a></li>
-                                <li><a href="{{ path('fos_user_change_password') }}">{{ 'generic.change_password'|trans({}, 'ProbesysAdminBundle') }}</a></li>
+                                <li><a href="#">{{ 'generic.my_profile'|trans({}, 'ProbesysAdminBundle') }}</a></li>
+                                <li><a href="#">{{ 'generic.change_password'|trans({}, 'ProbesysAdminBundle') }}</a></li>
                                 <li class="divider"></li>
-                                <li><a href="{{ path('fos_user_security_logout') }}">{{ 'generic.logout'|trans({}, 'ProbesysAdminBundle') }}</a></li>
+                                <li><a href="#">{{ 'generic.logout'|trans({}, 'ProbesysAdminBundle') }}</a></li>
                             {% endblock usermenu %}
                         </ul>
                     </div>
