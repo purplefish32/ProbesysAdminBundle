@@ -1,6 +1,6 @@
 <?php
 
-namespace Probesys\ProbesysAdminBundle\Command;
+namespace Probesys\AdminBundle\Command;
 
 use Sensio\Bundle\GeneratorBundle\Generator\DoctrineCrudGenerator;
 
