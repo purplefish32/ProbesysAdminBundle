@@ -16,11 +16,13 @@
         "php": ">=5.3.0",
         "symfony/framework-bundle":  "2.*",
         "symfony/symfony":           "2.*",
-        "probesys/generator-bundle": "dev-master"
+        "mopa/bootstrap-bundle":     "dev-master",
+        "probesys/jquery-bundle":    "dev-master"
 
     },
     "autoload": {
         "psr-0": { "Probesys\\AdminBundle": "" }
     },
-    "target-dir": "Probesys/AdminBundle"
+    "target-dir": "Probesys/AdminBundle",
+    "minimum-stability": "dev"
 }
