@@ -38,97 +38,83 @@
 
         </ul>
         <div id="list">
-            <form id="bulk_form" class="form" method="post" action="{{ "{{ path('"~ route_name_prefix ~"_bulk') }}" }}">
-                <table class="table table-striped index-table table-condensed">
-                    <thead>
-                        <tr>
-                            <th class="shrink"></th><!-- Key navigation -->
-                            <th class="shrink">
-                                <input type="checkbox" class="toggle">
-                            </th>
-
-                        {%- for field, metadata in fields %}
-
-                            <th>{{ "{{ pagination.sortable('"~ field|capitalize|replace({'_': ' '}) ~"', 'e."~ field ~"')|raw }}" }}</th>
-
-                        {%- endfor %}
-
-                            <th class="last shrink"></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-
-                    {{ '{%- for entity in pagination %}' }}
-
-                        <tr class="keynav">
-                            <td></td>
-                            <td>
-                                <input type="checkbox" value="{{ '{{ entity.id }}' }}" name="bulk_ids[]" id="bulk_ids_{{ '{{ entity.id }}' }}">
-                            </td>
-
+            <table class="table table-striped index-table table-condensed">
+                <thead>
+                    <tr>
                     {%- for field, metadata in fields %}
 
-                        {%- if loop.first and ('show' in actions) %}
-
-                            <td><a href="{{ "{{ path('"~ route_name_prefix ~"_show', { 'id': entity.id }) }}" }}">{{ '{{ entity.'~ field|replace({'_': ''}) ~' }}' }}</a></td>
-
-                        {%- elseif metadata.type in ['date', 'datetime'] %}
-
-                            <td>{{ '{% if entity.'~ field|replace({'_': ''}) ~' %}{{ entity.'~ field|replace({'_': ''}) ~'|date(\'Y-m-d H:i:s\') }}{% endif %}' }}</td>
-
-                        {%- elseif metadata.type == 'boolean' %}
-
-                            <td>
-                                {{ '{% if entity.'~ field|replace({'_': ''}) ~' %}' }}
-                                <i class="icon-star"></i>
-                                {{ '{%- else %}' }}
-                                <i class="icon-star-empty"></i>
-                                {{ '{%- endif %}' }}
-                                <span style="display:none">{{ '{{ entity.'~ field|replace({'_': ''}) ~' }}' }}</span>
-                            </td>
-
-                        {%- else %}
-
-                            <td>{{ '{{ entity.'~ field|replace({'_': ''}) ~' }}' }}</td>
-
-                        {%- endif %}
+                        <th>{{ "{{ pagination.sortable('"~ field|capitalize|replace({'_': ' '}) ~"', 'e."~ field ~"')|raw }}" }}</th>
 
                     {%- endfor %}
 
-                            <td class="last links">
-                                <ul class="inline">
-                                    <li class="icon show_member_link " rel="tooltip" title="{{ "{{ 'generic.show'|trans({}, 'ProbesysAdminBundle') }}" }}">
-                                        <a href="{{ "{{ path('"~ route_name_prefix ~"_show', { 'id': entity.id }) }}" }}">
-                                            <i class="icon-eye-open"></i>
-                                            <span style="display:none">{{ "{{ 'generic.show'|trans({}, 'ProbesysAdminBundle') }}" }}</span>
-                                        </a>
-                                    </li>
+                        <th class="last shrink"></th>
+                    </tr>
+                </thead>
+                <tbody>
 
-                                    <li class="icon edit_member_link " rel="tooltip" title="{{ "{{ 'generic.edit'|trans({}, 'ProbesysAdminBundle') }}" }}">
-                                        <a href="{{ "{{ path('"~ route_name_prefix ~"_edit', { 'id': entity.id }) }}" }}">
-                                            <i class="icon-pencil"></i>
-                                            <span style="display:none">{{ "{{ 'generic.edit'|trans({}, 'ProbesysAdminBundle') }}" }}</span>
-                                        </a>
-                                    </li>
+                {{ '{%- for entity in pagination %}' }}
 
-                                    <li class="icon delete_member_link " rel="tooltip" title="{{ "{{ 'generic.delete'|trans({}, 'ProbesysAdminBundle') }}" }}">
-                                        <a href="{{ "{{ path('"~ route_name_prefix ~"_delete', { 'id': entity.id }) }}" }}">
-                                            <i class="icon-remove"></i>
-                                            <span style="display:none">{{ "{{ 'generic.delete'|trans({}, 'ProbesysAdminBundle') }}" }}</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </td>
-                        </tr>
+                    <tr>
 
-                    {{ '{%- endfor %}' }}
+                {%- for field, metadata in fields %}
 
-                    </tbody>
-                </table>
-                <div class="form-actions">
-                    <button type="submit" name="action" value="bulk_delete" class="btn">{{ "{{ 'bulk.delete'|trans({}, 'ProbesysAdminBundle') }}" }}</button>
-                </div>
-            </form>
+                    {%- if loop.first and ('show' in actions) %}
+
+                        <td><a href="{{ "{{ path('"~ route_name_prefix ~"_show', { 'id': entity.id }) }}" }}">{{ '{{ entity.'~ field|replace({'_': ''}) ~' }}' }}</a></td>
+
+                    {%- elseif metadata.type in ['date', 'datetime'] %}
+
+                        <td>{{ '{% if entity.'~ field|replace({'_': ''}) ~' %}{{ entity.'~ field|replace({'_': ''}) ~'|date(\'Y-m-d H:i:s\') }}{% endif %}' }}</td>
+
+                    {%- elseif metadata.type == 'boolean' %}
+
+                        <td>
+                            {{ '{% if entity.'~ field|replace({'_': ''}) ~' %}' }}
+                            <i class="icon-star"></i>
+                            {{ '{%- else %}' }}
+                            <i class="icon-star-empty"></i>
+                            {{ '{%- endif %}' }}
+                            <span style="display:none">{{ '{{ entity.'~ field|replace({'_': ''}) ~' }}' }}</span>
+                        </td>
+
+                    {%- else %}
+
+                        <td>{{ '{{ entity.'~ field|replace({'_': ''}) ~' }}' }}</td>
+
+                    {%- endif %}
+
+                {%- endfor %}
+
+                        <td class="last links">
+                            <ul class="inline">
+                                <li class="icon show_member_link " rel="tooltip" title="{{ "{{ 'generic.show'|trans({}, 'ProbesysAdminBundle') }}" }}">
+                                    <a href="{{ "{{ path('"~ route_name_prefix ~"_show', { 'id': entity.id }) }}" }}">
+                                        <i class="icon-eye-open"></i>
+                                        <span style="display:none">{{ "{{ 'generic.show'|trans({}, 'ProbesysAdminBundle') }}" }}</span>
+                                    </a>
+                                </li>
+
+                                <li class="icon edit_member_link " rel="tooltip" title="{{ "{{ 'generic.edit'|trans({}, 'ProbesysAdminBundle') }}" }}">
+                                    <a href="{{ "{{ path('"~ route_name_prefix ~"_edit', { 'id': entity.id }) }}" }}">
+                                        <i class="icon-pencil"></i>
+                                        <span style="display:none">{{ "{{ 'generic.edit'|trans({}, 'ProbesysAdminBundle') }}" }}</span>
+                                    </a>
+                                </li>
+
+                                <li class="icon delete_member_link " rel="tooltip" title="{{ "{{ 'generic.delete'|trans({}, 'ProbesysAdminBundle') }}" }}">
+                                    <a href="{{ "{{ path('"~ route_name_prefix ~"_delete', { 'id': entity.id }) }}" }}">
+                                        <i class="icon-remove"></i>
+                                        <span style="display:none">{{ "{{ 'generic.delete'|trans({}, 'ProbesysAdminBundle') }}" }}</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+
+                {{ '{%- endfor %}' }}
+
+                </tbody>
+            </table>
         </div>
     </div><!--/row-->
 </div>

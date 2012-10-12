@@ -3,9 +3,9 @@
 namespace {{ namespace }}\Controller{{ entity_namespace ? '\\' ~ entity_namespace : '' }};
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-{% if 'annotation' == format -%}
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-{%- endif %}
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 
 use {{ namespace }}\Entity\{{ entity }};
 {% if 'new' in actions or 'edit' in actions %}
@@ -15,9 +15,7 @@ use {{ namespace }}\Form\{{ entity }}Type;
 /**
  * {{ entity }} controller.
  *
-{% if 'annotation' == format %}
  * @Route("/{{ route_prefix }}")
-{% endif %}
  */
 class {{ entity_class }}Controller extends Controller
 {
@@ -43,9 +41,5 @@ class {{ entity_class }}Controller extends Controller
     {%- if 'delete' in actions %}
         {%- include 'actions/delete.php' %}
     {%- endif %}
-
-    {#- if 'bulk' in actions #}
-        {%- include 'actions/bulk.php' %}
-    {#- endif #}
 
 }

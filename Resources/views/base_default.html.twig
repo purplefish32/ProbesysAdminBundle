@@ -1,6 +1,6 @@
 {% from 'ProbesysAdminBundle::flash.html.twig' import session_flash %}
 <!DOCTYPE html>
-<html lang="{{ app.session.locale }}">
+<html lang="{{ app.request.locale }}">
     <head>
         <meta charset="utf-8">
         <title>{{ block('app_name') }}</title>
@@ -47,15 +47,14 @@
                     <a class="brand" href="{{ path('admin_home') }}" tabindex="1">{% block app_name %}Probesys Admin{% endblock app_name %}</a>
                     <div class="btn-group pull-right">
                         <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-                            <i class="icon-user"></i>{{ app.user.username }}
-                            <span class="caret"></span>
+                            <i class="icon-user"></i>USER<span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu">
                             {% block usermenu %}
-                                <li><a href="{{ path('fos_user_profile_edit') }}">{{ 'generic.my_profile'|trans({}, 'ProbesysAdminBundle') }}</a></li>
-                                <li><a href="{{ path('fos_user_change_password') }}">{{ 'generic.change_password'|trans({}, 'ProbesysAdminBundle') }}</a></li>
+                                <li><a href="#">{{ 'generic.my_profile'|trans({}, 'ProbesysAdminBundle') }}</a></li>
+                                <li><a href="#">{{ 'generic.change_password'|trans({}, 'ProbesysAdminBundle') }}</a></li>
                                 <li class="divider"></li>
-                                <li><a href="{{ path('fos_user_security_logout') }}">{{ 'generic.logout'|trans({}, 'ProbesysAdminBundle') }}</a></li>
+                                <li><a href="#">{{ 'generic.logout'|trans({}, 'ProbesysAdminBundle') }}</a></li>
                             {% endblock usermenu %}
                         </ul>
                     </div>
@@ -110,7 +109,6 @@
             '@ProbesysAdminBundle/Resources/public/lib/bootstrap/js/bootstrap.min.js'
             '@ProbesysAdminBundle/Resources/public/js/ra.filtering-multiselect.js'
             '@ProbesysAdminBundle/Resources/public/js/ra.filtering-select.js'
-            '@ProbesysAdminBundle/Resources/public/js/keymaster.js'
             '@ProbesysAdminBundle/Resources/public/js/ra.widgets.js'
             '@ProbesysAdminBundle/Resources/public/js/scripts.js'
           filter='yui_js'
