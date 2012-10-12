@@ -10,7 +10,7 @@ class ProbesysAdminGenerateDoctrineCrudCommand extends GenerateDoctrineCrudComma
     protected function configure()
     {
         parent::configure();
-        $this->setName('probesys-admin:generate:crud');
+        $this->setName('probesys-admin:doctrine:generate:crud');
     }
 
     protected function getGenerator()
@@ -20,7 +20,7 @@ class ProbesysAdminGenerateDoctrineCrudCommand extends GenerateDoctrineCrudComma
         return parent::getGenerator();
     }
 
-    public function setGenerator(DoctrineCrudGenerator $generator)
+    public function setGenerator($generator)
     {
         $this->generator = $generator;
     }
