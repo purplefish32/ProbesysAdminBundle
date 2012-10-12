@@ -3,8 +3,9 @@
 namespace Probesys\AdminBundle\Command;
 
 use Probesys\AdminBundle\Generator\DoctrineCrudGenerator;
+use Sensio\Bundle\GeneratorBundle\Command\GenerateDoctrineCrudCommand as GenerateDoctrineCrudCommand;
 
-class ProbesysAdminDoctrineCrudCommand extends \Sensio\Bundle\GeneratorBundle\Command\GenerateDoctrineCrudCommand
+class ProbesysAdminGenerateDoctrineCrudCommand extends GenerateDoctrineCrudCommand
 {
     protected function configure()
     {
@@ -17,5 +18,10 @@ class ProbesysAdminDoctrineCrudCommand extends \Sensio\Bundle\GeneratorBundle\Co
         $generator = new DoctrineCrudGenerator($this->getContainer()->get('filesystem'), __DIR__.'/../Resources/skeleton/crud');
         $this->setGenerator($generator);
         return parent::getGenerator();
+    }
+
+    public function setGenerator(DoctrineCrudGenerator $generator)
+    {
+        $this->generator = $generator;
     }
 }
