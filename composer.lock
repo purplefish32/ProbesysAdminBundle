@@ -1,31 +1,31 @@
 {
-    "hash": "cfb923651e8e61af35e01b2244c144fc",
+    "hash": "257a3481bebbeacb91d880c10d23b0fd",
     "packages": [
         {
             "name": "doctrine/common",
-            "version": "2.3.x-dev",
+            "version": "2.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/common",
-                "reference": "bb0aebbf234db52df476a2b473d434745b34221c"
+                "reference": "2.3.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/doctrine/common/zipball/bb0aebbf234db52df476a2b473d434745b34221c",
-                "reference": "bb0aebbf234db52df476a2b473d434745b34221c",
+                "url": "https://github.com/doctrine/common/zipball/2.3.0",
+                "reference": "2.3.0",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.2"
             },
-            "time": "1348120518",
+            "time": "2012-09-19 19:55:18",
             "type": "library",
             "extra": {
                 "branch-alias": {
                     "dev-master": "2.3.x-dev"
                 }
             },
-            "installation-source": "source",
+            "installation-source": "dist",
             "autoload": {
                 "psr-0": {
                     "Doctrine\\Common": "lib/"
@@ -71,168 +71,60 @@
             ]
         },
         {
-            "name": "mopa/bootstrap-bundle",
+            "name": "probesys/generator-bundle",
             "version": "dev-master",
-            "target-dir": "Mopa/Bundle/BootstrapBundle",
+            "target-dir": "Probesys/GeneratorBundle",
             "source": {
                 "type": "git",
-                "url": "https://github.com/phiamo/MopaBootstrapBundle.git",
-                "reference": "90fbde36abea97443a67786980c1067de31ea589"
+                "url": "http://git.probesys.com/probesysgeneratorbundle.git",
+                "reference": "50b30e7a3250f6c28c41ff44e1d48e9ece8dbbe6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/phiamo/MopaBootstrapBundle/zipball/90fbde36abea97443a67786980c1067de31ea589",
-                "reference": "90fbde36abea97443a67786980c1067de31ea589",
-                "shasum": ""
-            },
-            "require": {
-                "mopa/composer-bridge": "dev-master",
-                "symfony/symfony": "2.1.*"
-            },
-            "suggest": {
-                "knplabs/knp-paginator-bundle": "dev-master",
-                "craue/formflow-bundle": "dev-master",
-                "twitter/bootstrap": "2.0.*",
-                "knplabs/knp-menu-bundle": "1.1.*",
-                "thomas-mcdonald/bootstrap-sass": "dev-master"
-            },
-            "time": "1349698836",
-            "type": "symfony-bundle",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.1.x-dev"
-                }
-            },
-            "installation-source": "source",
-            "autoload": {
-                "psr-0": {
-                    "Mopa\\Bundle\\BootstrapBundle": ""
-                }
-            },
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Philipp A. Mohrenweiser",
-                    "email": "phiamo@googlemail.com",
-                    "homepage": "http://bootstrap.mohrenweiserpartner.de"
-                },
-                {
-                    "name": "Community contributions",
-                    "homepage": "https://github.com/phiamo/MopaBootstrapBundle/contributors"
-                }
-            ],
-            "description": "Easy integration of twitters bootstrap into symfony2",
-            "keywords": [
-                "form",
-                "extra form",
-                "bootstrap",
-                "bootstrap form",
-                "template"
-            ]
-        },
-        {
-            "name": "mopa/composer-bridge",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "git://github.com/phiamo/MopaComposerBridge.git",
-                "reference": "84b8bf537163b4470f14d02554a0e9eb5d300172"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://github.com/phiamo/MopaComposerBridge/zipball/84b8bf537163b4470f14d02554a0e9eb5d300172",
-                "reference": "84b8bf537163b4470f14d02554a0e9eb5d300172",
-                "shasum": ""
-            },
-            "require": {
-                "symfony/console": "2.*"
-            },
-            "time": "1337596733",
-            "type": "symfony-bridge",
-            "installation-source": "source",
-            "autoload": {
-                "psr-0": {
-                    "Mopa\\Bridge\\Composer": "src/"
-                }
-            },
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Philipp A. Mohrenweiser",
-                    "email": "phiamo@googlemail.com",
-                    "homepage": "http://bootstrap.mohrenweiserpartner.de"
-                },
-                {
-                    "name": "Community contributions",
-                    "homepage": "https://github.com/phiamo/MopaComposerBridge/contributors"
-                }
-            ],
-            "description": "Symfony2 Composer Bridge",
-            "homepage": "http://bootstrap.mohrenweiserpartner.de",
-            "keywords": [
-                "Symfony2",
-                "composer"
-            ]
-        },
-        {
-            "name": "probesys/jquery-bundle",
-            "version": "dev-master",
-            "target-dir": "Probesys/JQueryBundle",
-            "source": {
-                "type": "git",
-                "url": "http://git.probesys.com/probesysjquerybundle.git",
-                "reference": "319936b30d9a3c0c53c47ad99368d504d7812c32"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://github.com/purplefish32/ProbesysJQueryBundle/zipball/319936b30d9a3c0c53c47ad99368d504d7812c32",
-                "reference": "319936b30d9a3c0c53c47ad99368d504d7812c32",
+                "url": "https://github.com/purplefish32/ProbesysGeneratorBundle/zipball/739f5005ecf52e749b8d24f9ddb0dfc62f29295c",
+                "reference": "739f5005ecf52e749b8d24f9ddb0dfc62f29295c",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.0"
             },
-            "time": "1345643946",
+            "time": "1349884417",
             "type": "library",
             "installation-source": "source",
             "autoload": {
                 "psr-0": {
-                    "Probesys\\JQueryBundle": ""
+                    "Probesys\\GeneratorBundle": ""
                 }
             },
+            "license": [
+                "GPL-V3"
+            ],
             "authors": [
                 {
                     "name": "Donovan Tengblad",
                     "email": "donovan.tengblad@probesys.com",
                     "homepage": "http://probesys.com"
-                },
-                {
-                    "name": "Nayda Valery (Original Author)",
-                    "homepage": "http://www.webcreator.kiev.ua"
                 }
             ],
-            "description": "JQuery helper",
+            "description": "Probesys Generator Bundle",
             "homepage": "http://probesys.com",
             "keywords": [
-                "jquery"
+                "generator",
+                "Probesys"
             ]
         },
         {
             "name": "symfony/symfony",
-            "version": "2.1.x-dev",
+            "version": "v2.1.2",
             "source": {
                 "type": "git",
                 "url": "git://github.com/symfony/symfony.git",
-                "reference": "854015265c24a7524d95d4ee57c59f2836d60dc1"
+                "reference": "v2.1.2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/symfony/symfony/zipball/854015265c24a7524d95d4ee57c59f2836d60dc1",
-                "reference": "854015265c24a7524d95d4ee57c59f2836d60dc1",
+                "url": "https://github.com/symfony/symfony/zipball/v2.1.2",
+                "reference": "v2.1.2",
                 "shasum": ""
             },
             "require": {
@@ -281,14 +173,14 @@
                 "propel/propel1": "dev-master",
                 "monolog/monolog": "dev-master"
             },
-            "time": "1349963062",
+            "time": "2012-09-19 21:13:00",
             "type": "library",
             "extra": {
                 "branch-alias": {
                     "dev-master": "2.1-dev"
                 }
             },
-            "installation-source": "source",
+            "installation-source": "dist",
             "autoload": {
                 "psr-0": {
                     "Symfony": "src/",
@@ -316,29 +208,29 @@
         },
         {
             "name": "twig/twig",
-            "version": "dev-master",
+            "version": "v1.10.0",
             "source": {
                 "type": "git",
                 "url": "git://github.com/fabpot/Twig.git",
-                "reference": "347bc81d6ed8e2bb793236aa9917c7e83f81c2b3"
+                "reference": "v1.10.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/fabpot/Twig/zipball/347bc81d6ed8e2bb793236aa9917c7e83f81c2b3",
-                "reference": "347bc81d6ed8e2bb793236aa9917c7e83f81c2b3",
+                "url": "https://github.com/fabpot/Twig/zipball/v1.10.0",
+                "reference": "v1.10.0",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.2.4"
             },
-            "time": "1349702400",
+            "time": "2012-09-28 10:11:39",
             "type": "library",
             "extra": {
                 "branch-alias": {
                     "dev-master": "1.10-dev"
                 }
             },
-            "installation-source": "source",
+            "installation-source": "dist",
             "autoload": {
                 "psr-0": {
                     "Twig_": "lib/"
@@ -368,9 +260,8 @@
     "aliases": [
 
     ],
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "stability-flags": {
-        "mopa/bootstrap-bundle": 20,
-        "probesys/jquery-bundle": 20
+        "probesys/generator-bundle": 20
     }
 }
